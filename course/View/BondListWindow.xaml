@@ -1,0 +1,39 @@
+﻿<Page x:Class="course.View.BondListWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:course.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="425"
+      Title="BondsList">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="60" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="bondsList" ItemsSource="{Binding Bonds}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        
+                        <TextBlock Text="{Binding ID}" FontSize="16"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="10" Padding="3" Command="{Binding AddCommand}"/>
+            <Button Content="Изменить" Margin="10" Command="{Binding EditCommand}" CommandParameter="{Binding ElementName=bondsList, Path=SelectedItem}"/>
+            <Button Content="Удалить" Margin="10" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=bondsList, Path=SelectedItem}"/>
+        </StackPanel>
+    </Grid>
+</Page>
