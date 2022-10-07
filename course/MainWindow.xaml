@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="425">
+        Title="Информационная подсистема учета ценных бумаг " Height="300" Width="425">
 
     <TabControl x:Name="mainTabs">
         <TabItem x:Name="Tickers">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="3">Тикеры</TextBlock>
+                    <TextBlock Margin="3">Ценные бумаги</TextBlock>
                 </StackPanel>
             </TabItem.Header>
             <TabItem.Content>
@@ -21,11 +21,31 @@
         <TabItem x:Name="Bonds">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="3">Bonds</TextBlock>
+                    <TextBlock Margin="3">Облигации</TextBlock>
                 </StackPanel>
             </TabItem.Header>
             <TabItem.Content>
                 <Frame Source="View/BondListWindow.xaml"/>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem x:Name="Finassets">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Финансовые инструменты</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Frame Source="View/FinAssetListWindow.xaml"/>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem x:Name="Securities">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="3">Акции</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Frame Source="View/SecurityListWindow.xaml"/>
             </TabItem.Content>
         </TabItem>
     </TabControl>

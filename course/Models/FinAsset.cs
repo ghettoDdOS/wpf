@@ -7,68 +7,76 @@ namespace course.Models
 {
     public class FinAsset : INotifyPropertyChanged
     {
+        int tikerID { get; set; }
+        Tiker tiker { get; set; }
+        string registration { get; set; }
+        DateTime dataRegistration { get; set; }
+        string emitent { get; set; }
+        string formIssue { get; set; }
+        string principal { get; set; }
+        int amount { get; set; }
         public int ID { get; set; }
         public int TikerID { get; set; }
         public Tiker Tiker
         {
-            get { return Tiker; }
+            get { return tiker; }
             set
             {
-                Tiker = value;
+                tiker = value;
                 OnPropertyChanged("Tiker");
             }
         }
         public string Registration 
         { 
-            get { return Registration; } 
+            get { return registration; } 
             set 
             {
-                Registration = value;
-                OnPropertyChanged("Registration");
+                registration = value;
+                OnPropertyChanged(null);
             }
         }
-        public DateOnly DataRegistration
+        public DateTime DataRegistration
         {
-            get { return DataRegistration; }
+            get { return dataRegistration; }
             set
             {
-                DataRegistration = value;
+                dataRegistration = value;
                 OnPropertyChanged("DataRegistration");
             }
         }
         public string Emitent
         {
-            get { return Emitent; }
+            get { return emitent; }
             set
             {
-                Emitent = value;
+                emitent = value;
                 OnPropertyChanged("Emitent");
             }
         }
         public string FormIssue
         {
-            get { return FormIssue; }
+            get { return formIssue; }
             set
             {
-                FormIssue = value;
+                formIssue = value;
                 OnPropertyChanged("FormIssue");
             }
         }
         public string Principal
         {
-            get { return Principal; }
+            get { return principal; }
             set
             {
-                Principal = value;
+                principal = value;
                 OnPropertyChanged("Principal");
             }
         }
         public int Amount
         {
-            get { return Amount; }
+            get { return amount; }
             set
             {
-                Amount = value;
+                amount = value;
                 OnPropertyChanged("Amount");
             }
         }

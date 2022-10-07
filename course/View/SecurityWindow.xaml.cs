@@ -6,23 +6,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace course.View
 {
-    public class BondContext
+    public class SecurityContext
     {
-        public Bond bond { get; set; }
+        public Security security { get; set; }
         public List<FinAsset> finAssets { get; set; }
     }
     /// <summary>
-    /// Логика взаимодействия для TikerWindow.xaml
+    /// Логика взаимодействия для SecurityWindow.xaml
     /// </summary>
-    public partial class BondWindow : Window
+    public partial class SecurityWindow : Window
     {
         ApplicationContext db = new ApplicationContext();
-        public BondContext ctx { get; private set; } = new BondContext();
-    public BondWindow(Bond bond)
+        public SecurityContext ctx { get; private set; } = new SecurityContext();
+        public SecurityWindow(Security security)
         {
             InitializeComponent();
 
-            ctx.bond = bond;
+            ctx.security = security;
             db.FinAssets.Load();
             ctx.finAssets = db.FinAssets.Local.ToList();
             DataContext = ctx;

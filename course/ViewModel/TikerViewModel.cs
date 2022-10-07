@@ -14,7 +14,6 @@ namespace course.ViewModel
         public ObservableCollection<Tiker> Tikers { get; set; }
         public TikerViewModel()
         {
-            db.Database.EnsureCreated();
             db.Tikers.Load();
             Tikers = db.Tikers.Local.ToObservableCollection();
         }

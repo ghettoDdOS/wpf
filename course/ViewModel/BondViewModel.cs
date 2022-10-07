@@ -15,7 +15,6 @@ namespace course.ViewModel
     
         public BondViewModel()
         {
-            db.Database.EnsureCreated();
             db.Bonds.Load(); 
             Bonds = db.Bonds.Local.ToObservableCollection();
         }
@@ -30,12 +29,14 @@ namespace course.ViewModel
                         if (bondWindow.ShowDialog() == true)
                         {
                             Bond bond = bondWindow.ctx.bond;
+                            bond.FinAsset = db.FinAssets.Find(bond.FinAssetID);
                             db.Bonds.Add(bond);
                             db.SaveChanges();
                         }
                     }));
             }
         }
+    
         public RelayCommand EditCommand
         {
             get
@@ -50,6 +51,7 @@ namespace course.ViewModel
                         {
                             ID = bond.ID,
                             FinAssetID = bond.FinAssetID,
+                            FinAsset = bond.FinAsset,
                             DataRepayment = bond.DataRepayment,
                             Coupon = bond.Coupon,
                             Rate = bond.Rate
@@ -59,6 +61,7 @@ namespace course.ViewModel
                         if (bondWindow.ShowDialog() == true)
                         {
                             bond.FinAssetID = bondWindow.ctx.bond.FinAssetID;
+                            bond.FinAsset = bondWindow.ctx.bond.FinAsset;
                             bond.DataRepayment = bondWindow.ctx.bond.DataRepayment;
                             bond.Coupon = bondWindow.ctx.bond.Coupon;
                             bond.Rate = bondWindow.ctx.bond.Rate;

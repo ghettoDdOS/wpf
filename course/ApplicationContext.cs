@@ -14,22 +14,10 @@ namespace course
         public DbSet<Tiker> Tikers { get; set; } = null!;
         public DbSet<Security> Securities { get; set; } = null!;
         public DbSet<Bond> Bonds { get; set; } = null!;
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public ApplicationContext()
         {
-            modelBuilder.Entity<FinAsset>(builder =>
-            {
-                builder.Property(x => x.DataRegistration).HasConversion<DateOnlyConverter, DateOnlyComparer>();
-            });
-            modelBuilder.Entity<Security>(builder =>
-            {
-                builder.Property(x => x.DataAccomodation).HasConversion<DateOnlyConverter, DateOnlyComparer>();
-                builder.Property(x => x.DataReport).HasConversion<DateOnlyConverter, DateOnlyComparer>();
-            });
-            modelBuilder.Entity<Bond>(builder =>
-            {
-                builder.Property(x => x.DataRepayment).HasConversion<DateOnlyConverter, DateOnlyComparer>();
-            });
+            //Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

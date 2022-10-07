@@ -1,11 +1,11 @@
-﻿<Window x:Class="course.View.TikerWindow"
+﻿<Window x:Class="course.View.SecurityWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course.View"
         mc:Ignorable="d"
-        Title="Тикер ценной бумаги" Height="200" Width="300">
+        Title="Акция" Height="200" Width="400">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="8" />
@@ -23,16 +23,19 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Тикер"/>
-        <TextBlock Text="Площадка" Grid.Row="1" />
+        <TextBlock Text="Инструмент"/>
+        <TextBlock Text="Дата размещения" Grid.Row="1"  />
+        <TextBlock Text="Дата регистрации" Grid.Row="2"  />
 
-        <TextBox Text="{Binding NameTiker}" Grid.Column="1" />
-        <TextBox Text="{Binding DealPlace}" Grid.Column="1" Grid.Row="1" />
+        <ComboBox ItemsSource="{Binding finAssets}" DisplayMemberPath="Registration" SelectedValuePath="ID" SelectedValue="{Binding Path=security.FinAssetID}" Grid.Column="1" />
+        <DatePicker SelectedDate="{Binding security.DataAccomodation}"  Grid.Column="1" Grid.Row="1"/>
+        <DatePicker SelectedDate="{Binding security.DataReport}"  Grid.Column="1" Grid.Row="2"/>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
             <Button IsDefault="True" Click="Accept_Click">Ок</Button>

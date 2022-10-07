@@ -9,7 +9,7 @@ namespace course.Models
     {
         int finAssetID { get; set; }
         FinAsset finAsset { get; set; }
-        DateOnly dataRepayment { get; set; }
+        DateTime dataRepayment { get; set; }
         int coupon { get; set; }
         int rate { get; set; }
 
@@ -24,7 +24,7 @@ namespace course.Models
                 OnPropertyChanged("FinAsset");
             }
         }
-        public DateOnly DataRepayment
+        public DateTime DataRepayment
         {
             get { return dataRepayment; }
             set

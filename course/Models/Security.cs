@@ -7,32 +7,36 @@ namespace course.Models
 {
     public class Security : INotifyPropertyChanged
     {
+        DateTime dataAccomodation { get; set; }
+        DateTime dataReport{ get; set; }
+        FinAsset finAsset { get; set; }
+
         public int ID { get; set; }
         public int FinAssetID { get; set; }
         public FinAsset FinAsset
         {
-            get { return FinAsset; }
+            get { return finAsset; }
             set
             {
-                FinAsset = value;
+                finAsset = value;
                 OnPropertyChanged("FinAsset");
             }
         }
-        public DateOnly DataAccomodation
+        public DateTime DataAccomodation
         {
-            get { return DataAccomodation; }
+            get { return dataAccomodation; }
             set
             {
-                DataAccomodation = value;
+                dataAccomodation = value;
                 OnPropertyChanged("DataAccomodation");
             }
         }
-        public DateOnly DataReport
+        public DateTime DataReport
         {
-            get { return DataReport; }
+            get { return dataReport; }
             set
             {
-                DataReport = value;
+                dataReport = value;
                 OnPropertyChanged("DataReport");
             }
         }

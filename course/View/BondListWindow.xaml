@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:course.View"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="425"
-      Title="BondsList">
+      Title="Облигации">
     <Page.Resources>
         <Style TargetType="Button">
             <Setter Property="MinWidth" Value="60" />
@@ -16,16 +16,16 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+           
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <ListBox x:Name="bondsList" ItemsSource="{Binding Bonds}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        
-                        <TextBlock Text="{Binding ID}" FontSize="16"/>
+
+                        <TextBlock Text="{Binding Path=ID, 
+                 StringFormat='Облигация: {0}'}" FontSize="16"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
